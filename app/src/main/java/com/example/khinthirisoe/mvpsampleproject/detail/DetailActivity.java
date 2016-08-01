@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @BindView(R.id.list_item)
-    TextView listitem;
+    TextView listItem;
 
     @Inject
     DetailPresenter presenter;
@@ -44,7 +44,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @Override
     public void setPositionText(int position) {
-        listitem.setText(String.valueOf(position));
+        listItem.setText(String.valueOf(position));
     }
 
     @Override

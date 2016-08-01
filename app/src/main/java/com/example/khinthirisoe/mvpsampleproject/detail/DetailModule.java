@@ -21,9 +21,11 @@ import dagger.Provides;
 public class DetailModule {
 
     DetailView view;
+    int position;
 
-    public DetailModule(DetailView view) {
+    public DetailModule(DetailView view, int position) {
         this.view = view;
+        this.position = position;
     }
 
     @Provides
