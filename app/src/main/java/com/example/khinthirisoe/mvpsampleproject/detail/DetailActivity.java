@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
         ButterKnife.bind(this);
 
-        presenter.loadItem(position);
+        presenter.loadItem();
     }
 
     @Override

@@ -12,6 +12,6 @@ public class DetailInteractorImpl implements DetailInteractor {
 
     @Override
     public void onGetItemDetail(int item, OnGetItemDetailListener listener) {
-        listener.onGetItemDetailListenerSuccess(item);
+        listener.onGetItemDetailSuccess(item);
     }
 }

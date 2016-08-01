@@ -21,14 +21,14 @@ public class DetailPresenterImpl implements DetailPresenter, DetailInteractor.On
     }
 
     @Override
-    public void onGetItemDetailListenerSuccess(int position) {
+    public void onGetItemDetailSuccess(int position) {
         if (view != null)
             view.setPositionText(position);
 
     }
 
     @Override
-    public void onGetItemDetailListenerFailed() {
+    public void onGetItemDetailFailed() {
         if (view != null)
             view.toast("failed item");
 

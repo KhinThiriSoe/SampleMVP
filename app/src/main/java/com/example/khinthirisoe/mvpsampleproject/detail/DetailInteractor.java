@@ -9,8 +9,8 @@ public interface DetailInteractor {
     void onGetItemDetail(int item, OnGetItemDetailListener listener);
 
     interface OnGetItemDetailListener {
-        void onGetItemDetailListenerSuccess(int item);
+        void onGetItemDetailSuccess(int item);
 
-        void onGetItemDetailListenerFailed();
+        void onGetItemDetailFailed();
     }
 }
