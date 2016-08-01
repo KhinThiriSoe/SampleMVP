@@ -3,13 +3,10 @@ package com.example.khinthirisoe.mvpsampleproject.detail;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.khinthirisoe.mvpsampleproject.R;
-import com.example.khinthirisoe.mvpsampleproject.main.DaggerMainComponent;
-import com.example.khinthirisoe.mvpsampleproject.main.MainModule;
 
 import javax.inject.Inject;
 
@@ -32,7 +29,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
         int position = intent.getIntExtra("item", 0);
 
         DaggerDetailComponent.builder()
-                .detailModule(new DetailModule(this))
+                .detailModule(new DetailModule(this, position))
                 .build().inject(this);
 
         setContentView(R.layout.activity_detail);

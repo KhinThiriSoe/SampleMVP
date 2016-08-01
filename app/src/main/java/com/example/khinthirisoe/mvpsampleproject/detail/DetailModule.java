@@ -35,6 +35,6 @@ public class DetailModule {
 
     @Provides
     public DetailPresenter providerDetailPresenter(DetailInteractor interactor) {
-        return new DetailPresenterImpl(view, interactor);
+        return new DetailPresenterImpl(view, interactor, position);
     }
 }

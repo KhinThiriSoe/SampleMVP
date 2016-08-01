@@ -1,14 +1,5 @@
 package com.example.khinthirisoe.mvpsampleproject.detail;
 
-import android.widget.Toast;
-
-import com.example.khinthirisoe.mvpsampleproject.login.LoginInteractor;
-import com.example.khinthirisoe.mvpsampleproject.login.LoginView;
-import com.example.khinthirisoe.mvpsampleproject.main.MainInteractor;
-import com.example.khinthirisoe.mvpsampleproject.main.MainPresenter;
-
-import java.util.List;
-
 /**
  * Created by khinthirisoe on 7/29/16.
  */
@@ -16,10 +7,12 @@ public class DetailPresenterImpl implements DetailPresenter, DetailInteractor.On
 
     DetailView view;
     DetailInteractor interactor;
+    int position;
 
-    DetailPresenterImpl(DetailView view, DetailInteractor interactor) {
+    public DetailPresenterImpl(DetailView view, DetailInteractor interactor, int position) {
         this.view = view;
         this.interactor = interactor;
+        this.position = position;
     }
 
     @Override
