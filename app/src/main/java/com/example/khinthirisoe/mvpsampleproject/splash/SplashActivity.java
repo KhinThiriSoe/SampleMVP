@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.khinthirisoe.mvpsampleproject.R;
+import com.example.khinthirisoe.mvpsampleproject.login.LoginActivity;
 import com.example.khinthirisoe.mvpsampleproject.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,11 +20,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        }, 200);
+        }, 1000);
 
     }
 

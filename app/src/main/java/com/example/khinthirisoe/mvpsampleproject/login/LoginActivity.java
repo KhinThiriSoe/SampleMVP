@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.khinthirisoe.mvpsampleproject.BuildConfig;
 import com.example.khinthirisoe.mvpsampleproject.R;
+import com.example.khinthirisoe.mvpsampleproject.main.MainActivity;
 import com.example.khinthirisoe.mvpsampleproject.splash.SplashActivity;
 
 import javax.inject.Inject;
@@ -54,14 +55,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     }
 
     @Override
-    public void toastLoginSuccess() {
-        Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
+    public void LoginSuccess() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
     @Override
-    public void toastLoginFailed() {
+    public void LoginFailed() {
         Toast.makeText(this, "login failed", Toast.LENGTH_SHORT).show();
     }
 

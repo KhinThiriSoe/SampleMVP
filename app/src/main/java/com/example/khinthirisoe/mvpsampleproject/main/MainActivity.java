@@ -19,7 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-
 public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener {
 
     @BindView(R.id.listview)
@@ -42,24 +41,23 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
         listView.setOnItemClickListener(this);
 
-        presenter.loadItem();
-    }
-
-
-    @Override
-    public void setItem(List<String> items) {
-        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
-    }
-
-    @Override
-    public void moveToDetail(int position) {
-        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-        intent.putExtra("item",position);
-        startActivity(intent);
+        presenter.getItems();
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         presenter.clickItem(i);
+    }
+
+    @Override
+    public void setItems(List<String> items) {
+        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
+    }
+
+    @Override
+    public void startDetailActivity(int position) {
+        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+        intent.putExtra("item", position);
+        startActivity(intent);
     }
 }

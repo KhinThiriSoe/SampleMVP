@@ -21,13 +21,13 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     @Override
     public void onLoginSuccess() {
         if(view != null)
-            view.toastLoginSuccess();
+            view.LoginSuccess();
 
     }
 
     @Override
     public void onLoginFailed() {
         if(view != null)
-            view.toastLoginFailed();
+            view.LoginFailed();
     }
 }

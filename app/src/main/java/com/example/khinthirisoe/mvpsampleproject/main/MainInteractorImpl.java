@@ -14,11 +14,11 @@ import java.util.ListIterator;
 public class MainInteractorImpl implements MainInteractor {
 
     @Override
-    public void onItemLoad(OnItemLoadListener listener) {
+    public void onLoadItems(OnLoadItemsListener listener) {
         List<String> arrayList = new ArrayList<>();
         for(int i = 0; i < 10; i++){
             arrayList.add(i, "Item " + i);
         }
-        listener.onItemLoadSuccess(arrayList);
+        listener.onLoadItemsSuccess(arrayList);
     }
 }

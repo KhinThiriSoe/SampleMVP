@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by khinthirisoe on 7/28/16.
  */
-public class MainPresenterImpl implements MainPresenter, MainInteractor.OnItemLoadListener {
+public class MainPresenterImpl implements MainPresenter, MainInteractor.OnLoadItemsListener {
 
     MainView view;
     MainInteractor interactor;
@@ -23,20 +23,20 @@ public class MainPresenterImpl implements MainPresenter, MainInteractor.OnItemLo
     }
 
     @Override
-    public void loadItem() {
-        interactor.onItemLoad(this);
+    public void getItems() {
+        interactor.onLoadItems(this);
     }
 
     @Override
     public void clickItem(int position) {
         if(view != null)
-            view.moveToDetail(position);
+            view.startDetailActivity(position);
     }
 
     @Override
-    public void onItemLoadSuccess(List<String> items) {
+    public void onLoadItemsSuccess(List<String> items) {
         this.items = items;
         if(view != null)
-            view.setItem(items);
+            view.setItems(items);
     }
 }

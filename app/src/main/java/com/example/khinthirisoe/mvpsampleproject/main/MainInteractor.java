@@ -6,10 +6,10 @@ import java.util.List;
  * Created by khinthirisoe on 7/28/16.
  */
 public interface MainInteractor {
-    void onItemLoad(OnItemLoadListener listener);
+    void onLoadItems(OnLoadItemsListener listener);
 
-    interface OnItemLoadListener{
-        void onItemLoadSuccess(List<String> items);
+    interface OnLoadItemsListener{
+        void onLoadItemsSuccess(List<String> items);
     }
 
 }
