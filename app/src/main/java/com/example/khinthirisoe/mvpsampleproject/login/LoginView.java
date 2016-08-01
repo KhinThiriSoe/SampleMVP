@@ -6,5 +6,5 @@ package com.example.khinthirisoe.mvpsampleproject.login;
 public interface LoginView {
     void startMainActivity();
 
-    void LoginFailed();
+    void toast(String message);
 }

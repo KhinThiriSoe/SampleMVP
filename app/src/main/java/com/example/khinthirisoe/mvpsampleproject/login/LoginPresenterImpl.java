@@ -28,6 +28,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     @Override
     public void onLoginFailed() {
         if (view != null)
-            view.LoginFailed();
+            view.toast("Login failed");
     }
 }
