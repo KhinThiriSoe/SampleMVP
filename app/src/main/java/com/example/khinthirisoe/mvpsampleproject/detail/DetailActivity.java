@@ -29,7 +29,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        int position = intent.getIntExtra("item",0);
+        int position = intent.getIntExtra("item", 0);
 
         DaggerDetailComponent.builder()
                 .detailModule(new DetailModule(this))
@@ -43,12 +43,13 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     }
 
     @Override
-    public void loadItemSuccess(int position) {
+    public void setPositionText(int position) {
         listitem.setText(String.valueOf(position));
     }
 
     @Override
-    public void loadItemFailed(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    public void toast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
     }
 }

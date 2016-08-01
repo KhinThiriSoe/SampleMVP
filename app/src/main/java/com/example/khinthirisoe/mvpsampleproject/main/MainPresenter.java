@@ -5,5 +5,6 @@ package com.example.khinthirisoe.mvpsampleproject.main;
  */
 public interface MainPresenter {
     void getItems();
+
     void clickItem(int position);
 }

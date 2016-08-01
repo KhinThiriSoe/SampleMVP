@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
 
         ButterKnife.bind(this);
 
-        if(BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             etUserName.setText("thiri");
             etPassword.setText("123");
         }
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     }
 
     @Override
-    public void LoginSuccess() {
+    public void startMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

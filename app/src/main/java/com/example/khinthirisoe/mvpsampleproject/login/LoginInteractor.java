@@ -5,8 +5,10 @@ package com.example.khinthirisoe.mvpsampleproject.login;
  */
 public interface LoginInteractor {
     void onLogin(String username, String password, OnLoginListener listener);
-    interface OnLoginListener{
+
+    interface OnLoginListener {
         void onLoginSuccess();
+
         void onLoginFailed();
     }
 }

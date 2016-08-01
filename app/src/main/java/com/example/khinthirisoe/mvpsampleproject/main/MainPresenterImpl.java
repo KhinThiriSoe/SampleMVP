@@ -17,7 +17,7 @@ public class MainPresenterImpl implements MainPresenter, MainInteractor.OnLoadIt
 
     List<String> items;
 
-    public MainPresenterImpl(MainView view, MainInteractor interactor){
+    public MainPresenterImpl(MainView view, MainInteractor interactor) {
         this.view = view;
         this.interactor = interactor;
     }
@@ -29,14 +29,14 @@ public class MainPresenterImpl implements MainPresenter, MainInteractor.OnLoadIt
 
     @Override
     public void clickItem(int position) {
-        if(view != null)
+        if (view != null)
             view.startDetailActivity(position);
     }
 
     @Override
     public void onLoadItemsSuccess(List<String> items) {
         this.items = items;
-        if(view != null)
+        if (view != null)
             view.setItems(items);
     }
 }

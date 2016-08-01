@@ -22,17 +22,17 @@ public class DetailModule {
 
     DetailView view;
 
-    public DetailModule(DetailView view){
+    public DetailModule(DetailView view) {
         this.view = view;
     }
 
     @Provides
-    public DetailInteractor provideDetailInteractor(){
+    public DetailInteractor provideDetailInteractor() {
         return new DetailInteractorImpl();
     }
 
     @Provides
-    public DetailPresenter providerDetailPresenter(DetailInteractor interactor){
-        return new DetailPresenterImpl(view,interactor);
+    public DetailPresenter providerDetailPresenter(DetailInteractor interactor) {
+        return new DetailPresenterImpl(view, interactor);
     }
 }

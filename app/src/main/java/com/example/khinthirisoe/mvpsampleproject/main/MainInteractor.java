@@ -8,7 +8,7 @@ import java.util.List;
 public interface MainInteractor {
     void onLoadItems(OnLoadItemsListener listener);
 
-    interface OnLoadItemsListener{
+    interface OnLoadItemsListener {
         void onLoadItemsSuccess(List<String> items);
     }
 

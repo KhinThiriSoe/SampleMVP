@@ -7,5 +7,6 @@ import java.util.List;
  */
 public interface MainView {
     void setItems(List<String> items);
+
     void startDetailActivity(int position);
 }

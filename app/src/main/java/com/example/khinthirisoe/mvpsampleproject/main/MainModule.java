@@ -10,17 +10,17 @@ import dagger.Provides;
 public class MainModule {
     MainView view;
 
-    public MainModule(MainView view){
+    public MainModule(MainView view) {
         this.view = view;
     }
 
     @Provides
-    public MainInteractor provideMainInteractor(){
+    public MainInteractor provideMainInteractor() {
         return new MainInteractorImpl();
     }
 
     @Provides
-    public MainPresenter providerMainPresenter(MainInteractor interactor){
-        return new MainPresenterImpl(view,interactor);
+    public MainPresenter providerMainPresenter(MainInteractor interactor) {
+        return new MainPresenterImpl(view, interactor);
     }
 }

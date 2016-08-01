@@ -6,6 +6,7 @@ import java.util.List;
  * Created by khinthirisoe on 7/29/16.
  */
 public interface DetailView {
-    void loadItemSuccess(int position);
-    void loadItemFailed(String message);
+    void setPositionText(int position);
+
+    void toast(String message);
 }

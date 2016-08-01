@@ -7,8 +7,10 @@ import java.util.List;
  */
 public interface DetailInteractor {
     void onGetItemDetail(int item, OnGetItemDetailListener listener);
+
     interface OnGetItemDetailListener {
         void onGetItemDetailListenerSuccess(int item);
+
         void onGetItemDetailListenerFailed();
     }
 }

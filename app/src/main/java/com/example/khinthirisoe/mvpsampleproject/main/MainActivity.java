@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Inject
     MainPresenter presenter;
 
+    ArrayAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
         listView.setOnItemClickListener(this);
 
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+
+        listView.setAdapter(adapter);
+
         presenter.getItems();
     }
 
@@ -51,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
     @Override
     public void setItems(List<String> items) {
-        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
+        adapter.clear();
+        adapter.addAll(items);
     }
 
     @Override
