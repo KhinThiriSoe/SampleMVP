@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     @Inject
     MainPresenter presenter;
 
-    ArrayAdapter adapter;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
