@@ -16,7 +16,7 @@ public class DetailPresenterImpl implements DetailPresenter, DetailInteractor.On
     }
 
     @Override
-    public void loadItem(int position) {
+    public void loadItem() {
         interactor.onGetItemDetail(position, this);
     }
 
