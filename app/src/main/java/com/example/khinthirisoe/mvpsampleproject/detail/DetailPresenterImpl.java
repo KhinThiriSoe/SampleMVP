@@ -1,5 +1,7 @@
 package com.example.khinthirisoe.mvpsampleproject.detail;
 
+import android.widget.Toast;
+
 /**
  * Created by khinthirisoe on 7/29/16.
  */
@@ -30,7 +32,7 @@ public class DetailPresenterImpl implements DetailPresenter, DetailInteractor.On
     @Override
     public void onGetItemDetailFailed() {
         if (view != null)
-            view.toast("failed item");
+            view.toast("failed item", Toast.LENGTH_SHORT);
 
     }
 }

@@ -38,8 +38,6 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setupComponent();
-
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
@@ -53,6 +51,14 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
 
     }
 
+
+    @Override
+    protected void setupComponent() {
+        DaggerLoginComponent.builder()
+                .loginModule(new LoginModule(this))
+                .build().inject(this);
+    }
+
     @Override
     public void startMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -61,19 +67,8 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
     }
 
     @Override
-    public void toast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onClick(View view) {
         presenter.clickSubmit(etUserName.getText().toString(), etPassword.getText().toString());
     }
 
-    @Override
-    protected void setupComponent() {
-        DaggerLoginComponent.builder()
-                .loginModule(new LoginModule(this))
-                .build().inject(this);
-    }
 }

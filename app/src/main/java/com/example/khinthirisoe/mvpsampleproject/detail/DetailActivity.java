@@ -27,24 +27,11 @@ public class DetailActivity extends BaseActivity implements DetailView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setupComponent();
-
         setContentView(R.layout.activity_detail);
 
         ButterKnife.bind(this);
 
         presenter.loadItem();
-    }
-
-    @Override
-    public void setPositionText(int position) {
-        listItem.setText(String.valueOf(position));
-    }
-
-    @Override
-    public void toast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
@@ -57,4 +44,11 @@ public class DetailActivity extends BaseActivity implements DetailView {
                 .build().inject(this);
 
     }
+
+    @Override
+    public void setPositionText(int position) {
+        listItem.setText(String.valueOf(position));
+    }
+
+
 }

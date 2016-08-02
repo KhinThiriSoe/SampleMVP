@@ -35,8 +35,6 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setupComponent();
-
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
@@ -48,6 +46,13 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
         listView.setAdapter(adapter);
 
         presenter.getItems();
+    }
+
+    @Override
+    protected void setupComponent() {
+        DaggerMainComponent.builder()
+                .mainModule(new MainModule(this))
+                .build().inject(this);
     }
 
     @Override
@@ -66,17 +71,5 @@ public class MainActivity extends BaseActivity implements MainView, AdapterView.
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra("item", position);
         startActivity(intent);
-    }
-
-    @Override
-    protected void setupComponent() {
-        DaggerMainComponent.builder()
-                .mainModule(new MainModule(this))
-                .build().inject(this);
-    }
-
-    @Override
-    public void toast(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

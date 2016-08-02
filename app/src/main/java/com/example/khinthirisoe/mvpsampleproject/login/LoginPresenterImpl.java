@@ -1,5 +1,7 @@
 package com.example.khinthirisoe.mvpsampleproject.login;
 
+import android.widget.Toast;
+
 import com.example.khinthirisoe.mvpsampleproject.core.BaseActivity;
 
 /**
@@ -30,7 +32,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     @Override
     public void onLoginFailed() {
         if (view != null)
-            view.toast("login failed");
+            view.toast("login failed", Toast.LENGTH_SHORT);
 
     }
 }
