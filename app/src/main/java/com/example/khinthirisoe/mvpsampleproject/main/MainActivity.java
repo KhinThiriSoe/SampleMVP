@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.khinthirisoe.mvpsampleproject.R;
+import com.example.khinthirisoe.mvpsampleproject.core.BaseActivity;
 import com.example.khinthirisoe.mvpsampleproject.detail.DetailActivity;
 
 import java.util.List;
@@ -19,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity implements MainView, AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity implements MainView, AdapterView.OnItemClickListener {
 
     @BindView(R.id.listview)
     ListView listView;
@@ -33,9 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerMainComponent.builder()
-                .mainModule(new MainModule(this))
-                .build().inject(this);
+        setupComponent();
 
         setContentView(R.layout.activity_main);
 
@@ -66,5 +66,17 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra("item", position);
         startActivity(intent);
+    }
+
+    @Override
+    protected void setupComponent() {
+        DaggerMainComponent.builder()
+                .mainModule(new MainModule(this))
+                .build().inject(this);
+    }
+
+    @Override
+    public void toast(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

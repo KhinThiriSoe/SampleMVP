@@ -7,13 +7,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.khinthirisoe.mvpsampleproject.R;
+import com.example.khinthirisoe.mvpsampleproject.core.BaseActivity;
+import com.example.khinthirisoe.mvpsampleproject.core.BaseView;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailActivity extends AppCompatActivity implements DetailView {
+public class DetailActivity extends BaseActivity implements DetailView {
 
     @BindView(R.id.list_item)
     TextView listItem;
@@ -25,12 +27,7 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = getIntent();
-        int position = intent.getIntExtra("item", 0);
-
-        DaggerDetailComponent.builder()
-                .detailModule(new DetailModule(this, position))
-                .build().inject(this);
+        setupComponent();
 
         setContentView(R.layout.activity_detail);
 
@@ -47,6 +44,17 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @Override
     public void toast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    protected void setupComponent() {
+        Intent intent = getIntent();
+        int position = intent.getIntExtra("item", 0);
+
+        DaggerDetailComponent.builder()
+                .detailModule(new DetailModule(this, position))
+                .build().inject(this);
 
     }
 }

@@ -8,7 +8,6 @@ public interface LoginInteractor {
 
     interface OnLoginListener {
         void onLoginSuccess();
-
         void onLoginFailed();
     }
 }

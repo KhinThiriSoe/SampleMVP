@@ -5,5 +5,4 @@ package com.example.khinthirisoe.mvpsampleproject.login;
  */
 public interface LoginPresenter {
     void clickSubmit(String username, String password);
-
 }

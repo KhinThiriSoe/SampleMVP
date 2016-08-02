@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.khinthirisoe.mvpsampleproject.BuildConfig;
 import com.example.khinthirisoe.mvpsampleproject.R;
+import com.example.khinthirisoe.mvpsampleproject.core.BaseActivity;
+import com.example.khinthirisoe.mvpsampleproject.core.BaseView;
 import com.example.khinthirisoe.mvpsampleproject.main.MainActivity;
 import com.example.khinthirisoe.mvpsampleproject.splash.SplashActivity;
 
@@ -18,7 +20,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity implements LoginView, View.OnClickListener {
+public class LoginActivity extends BaseActivity implements LoginView, View.OnClickListener {
 
     @BindView(R.id.etUserName)
     EditText etUserName;
@@ -36,10 +38,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerLoginComponent.builder()
-                .loginModule(new LoginModule(this))
-                .build().inject(this);
-
+        setupComponent();
 
         setContentView(R.layout.activity_login);
 
@@ -69,5 +68,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     @Override
     public void onClick(View view) {
         presenter.clickSubmit(etUserName.getText().toString(), etPassword.getText().toString());
+    }
+
+    @Override
+    protected void setupComponent() {
+        DaggerLoginComponent.builder()
+                .loginModule(new LoginModule(this))
+                .build().inject(this);
     }
 }

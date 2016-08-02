@@ -1,5 +1,7 @@
 package com.example.khinthirisoe.mvpsampleproject.login;
 
+import com.example.khinthirisoe.mvpsampleproject.core.BaseActivity;
+
 /**
  * Created by khinthirisoe on 7/28/16.
  */
@@ -28,6 +30,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     @Override
     public void onLoginFailed() {
         if (view != null)
-            view.toast("Login failed");
+            view.toast("login failed");
+
     }
 }
